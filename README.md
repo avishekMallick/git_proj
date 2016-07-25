@@ -1,1 +1,1 @@
-This is a sample GIT project# git_proj
+This is a sample GIT project # git_proj
