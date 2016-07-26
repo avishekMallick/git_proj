@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myapp">
 <head>
-	<title>GIT Respitory</title>
-	<style type="text/css" href="styles/style.css"></style>
-	
-</head>
-<body onload="loadInit()">
-<h1>Welcome to GIT Respitory</h1>
-Hi. I am a Git File. Show me if you want....
+	<meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<footer>
-	<script type="text/javascript" src="scripts/script.js"></script>
-</footer>
+	<title>GIT Respitory</title>
+	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="bootstrap.css">
+
+	<script src="angular.min.js"></script>	
+	<script type="text/javascript" src="angularjs-dropdown-multiselect.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-animate.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/pc035860/angular-highlightjs/master/angular-highlightjs.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+	<script>
+		angular.module('myapp',['angularjs-dropdown-multiselect','hljs','ui.bootstrap'])
+		.controller('mycontrol', ['$scope', function($scope) {
+			$scope.example8model = []; 
+			$scope.example8data = [{id: 1, label: "David"}, {id: 2, label: "Jhon"}, {id: 3, label: "Danny"}];
+		}]);
+	</script>
+</head>
+<body ng-controller="mycontrol">
+<h1>Welcome to GIT Respitory</h1>
+Hi. I am a Git File. Show me if you want.... <br/>
+	
+	<div class="row">
+    <div class="col-xs-12 col-sm-6">
+	<div class="well">
+        <div>
+ 	 <div ng-dropdown-multiselect options="example8data" selected-model="example8model" checkboxes="true"></div> <br/>
+ 	 {{example8model}}
+ 	 </div>
+ 	</div> 
+ 	</div>
+ 	</div>
 </body>
 </html>
