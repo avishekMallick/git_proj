@@ -35,8 +35,16 @@ Hi. I am a Git File. Show me if you want.... <br/>
  	 {{example8model}}
  	 <form novalidate name="frm">
  	 <input type="text" name="pass" ng-model="pass" ng-pattern="/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,100}$/" /> 
- 	  <span ng-show="frm.pass.$error.pattern">Invalid / Min Length</span>
+ 	  <span ng-show="frm.pass.$error.pattern">Invalid / Min Length</span> <br/>
+
+ 	  <input type="radio" name="gen" value="M" ng-model="genRadio" /> M &nbsp; 
+ 	  <input type="radio" name="gen" value="F" ng-model="genRadio" /> F <br/> {{genRadio}}
+ 	  <input type="text" name="t" ng-model="t" ng-disabled="genRadio !== M" />
+
  	 </form>
+
+
+
  	 </div>
  	</div> 
  	</div>
