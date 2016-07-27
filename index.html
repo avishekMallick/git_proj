@@ -20,6 +20,12 @@
 		.controller('mycontrol', ['$scope', function($scope) {
 			$scope.example8model = []; 
 			$scope.example8data = [{id: 1, label: "David"}, {id: 2, label: "Jhon"}, {id: 3, label: "Danny"}];
+			$scope.getVal=function(){
+				alert($scope.yy);
+			};
+			$scope.subData=function(frm){
+				console.log(frm);
+			};
 		}]);
 	</script>
 </head>
@@ -31,15 +37,18 @@ Hi. I am a Git File. Show me if you want.... <br/>
     <div class="col-xs-12 col-sm-6">
 	<div class="well">
         <div>
- 	 <div ng-dropdown-multiselect options="example8data" selected-model="example8model" checkboxes="true"></div> <br/>
- 	 {{example8model}}
- 	 <form novalidate name="frm">
+ 	 <div is-disabled="false" ng-dropdown-multiselect options="example8data" selected-model="example8model" checkboxes="true"></div> <br/>
+ 	 <input type="text" ng-model="yy" value="{{example8model}}" /> <button ng-click="getVal();" >click</button>
+ 	 <form novalidate name="frm" ng-submit="subData(frm);">
  	 <input type="text" name="pass" ng-model="pass" ng-pattern="/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,100}$/" /> 
  	  <span ng-show="frm.pass.$error.pattern">Invalid / Min Length</span> <br/>
 
  	  <input type="radio" name="gen" value="M" ng-model="genRadio" /> M &nbsp; 
  	  <input type="radio" name="gen" value="F" ng-model="genRadio" /> F <br/> {{genRadio}}
- 	  <input type="text" name="t" ng-model="t" ng-disabled="genRadio !== M" />
+ 	  <input type="text" name="t" ng-model="t" ng-disabled="genRadio !== M" /> <br/> AAA
+
+ 	  <input type="text" ng-model="gg" ng-readonly="!ggClick" name="gg" ng-click="ggClick=true">
+ 	  <input type="submit" value="GO" />
 
  	 </form>
 

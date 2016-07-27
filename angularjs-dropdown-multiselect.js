@@ -14,7 +14,8 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                 events: '=',
                 searchFilter: '=?',
                 translationTexts: '=',
-                groupBy: '@'
+                groupBy: '@',
+                isDisabled:'='
             },
             template: function (element, attrs) {
                 var checkboxes = attrs.checkboxes ? true : false;
@@ -58,6 +59,9 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                 var $dropdownTrigger = $element.children()[0];  
 
                 $scope.toggleDropdown = function () {
+                    if($scope.isDisabled){
+                         return false;   
+                    }
                     $scope.open = !$scope.open;
                 };
 
