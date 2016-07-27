@@ -33,6 +33,10 @@ Hi. I am a Git File. Show me if you want.... <br/>
         <div>
  	 <div ng-dropdown-multiselect options="example8data" selected-model="example8model" checkboxes="true"></div> <br/>
  	 {{example8model}}
+ 	 <form novalidate name="frm">
+ 	 <input type="text" name="pass" ng-model="pass" ng-pattern="/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,100}$/" /> 
+ 	  <span ng-show="frm.pass.$error.pattern">Invalid / Min Length</span>
+ 	 </form>
  	 </div>
  	</div> 
  	</div>
